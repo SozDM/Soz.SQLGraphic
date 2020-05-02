@@ -16,7 +16,7 @@ namespace Soz.SQLGraphic
     public partial class OrdersPage : Form
     {
         Order orders = new Order();
-        int UserIdGlob = 0, OrderIdGlob = 0;
+        int UserIdGlob = 0;
         List<int> OrderIdList = new List<int>();
 
         public OrdersPage(int UserId)
@@ -86,8 +86,6 @@ namespace Soz.SQLGraphic
 
         private void buttonSaveOrder_Click(object sender, EventArgs e)
         {
-            int orderAmount = 0;
-
             if (Int32.TryParse(textBoxOrderId.Text, out int orderId))
             {
                 if (OrderIdList.Contains(Int32.Parse(textBoxOrderId.Text)))
@@ -104,10 +102,9 @@ namespace Soz.SQLGraphic
 
         public void SaveOrder(int orderId)
         {
-            int orderAmount = 0;
-            if (!string.IsNullOrWhiteSpace(textBoxAmount.Text) | (Int32.TryParse(textBoxAmount.Text, out int result)))
+            if (!string.IsNullOrWhiteSpace(textBoxAmount.Text) & (Int32.TryParse(textBoxAmount.Text, out int result)))
             {
-                orderAmount = result;
+                int orderAmount = result;
                 if (MessageBox.Show($"Do you want to save order #{orderId}?", $"Edit order #{orderId}", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     orders.Edit(orderId, orderAmount, textBoxDescription.Text);
@@ -120,10 +117,9 @@ namespace Soz.SQLGraphic
 
         public void SaveNewOrder()
         {
-            int orderAmount = 0;
             if (Int32.TryParse(textBoxAmount.Text, out int result))
             {
-                orderAmount = result;
+                int orderAmount = result;
                 if (MessageBox.Show($"Do you want to save new order?", $"Edit new order", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     orders.Add(UserIdGlob, orderAmount, textBoxDescription.Text);

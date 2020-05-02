@@ -46,12 +46,12 @@ namespace Soz.SQLGraphic
             this.buttonSaveOrder = new System.Windows.Forms.Button();
             this.textBoxOrderId = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.warnings = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.TableOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warnings = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +189,29 @@ namespace Soz.SQLGraphic
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // warnings
+            // 
+            this.warnings.AutoSize = true;
+            this.warnings.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.warnings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.warnings.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.warnings.Location = new System.Drawing.Point(147, 240);
+            this.warnings.Name = "warnings";
+            this.warnings.Size = new System.Drawing.Size(138, 20);
+            this.warnings.TabIndex = 18;
+            this.warnings.Text = "Add valid OrderId";
+            this.warnings.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(22, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 32);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "OrderId";
+            // 
             // TableOrderId
             // 
             dataGridViewCellStyle1.Format = "N0";
@@ -215,7 +238,7 @@ namespace Soz.SQLGraphic
             // 
             // TableAmount
             // 
-            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.Format = "N0";
             dataGridViewCellStyle3.NullValue = "0";
             this.TableAmount.DefaultCellStyle = dataGridViewCellStyle3;
             this.TableAmount.HeaderText = "Amount";
@@ -232,29 +255,6 @@ namespace Soz.SQLGraphic
             this.TableDescription.Name = "TableDescription";
             this.TableDescription.ReadOnly = true;
             this.TableDescription.Width = 300;
-            // 
-            // warnings
-            // 
-            this.warnings.AutoSize = true;
-            this.warnings.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.warnings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.warnings.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.warnings.Location = new System.Drawing.Point(147, 240);
-            this.warnings.Name = "warnings";
-            this.warnings.Size = new System.Drawing.Size(138, 20);
-            this.warnings.TabIndex = 18;
-            this.warnings.Text = "Add valid OrderId";
-            this.warnings.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(22, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 32);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "OrderId";
             // 
             // OrdersPage
             // 
@@ -305,11 +305,11 @@ namespace Soz.SQLGraphic
         private System.Windows.Forms.Button buttonSaveOrder;
         private System.Windows.Forms.TextBox textBoxOrderId;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label warnings;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableOrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn TableDescription;
-        private System.Windows.Forms.Label warnings;
-        private System.Windows.Forms.Label label1;
     }
 }
