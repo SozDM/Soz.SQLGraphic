@@ -19,21 +19,34 @@ namespace Soz.SQLGraphic
         public LoginPage()
         {
             InitializeComponent();
-            GetLists();
+            GetUserIdList();
+            RefreshUserList();
         }
 
-
-        static void GetLists()
+        void GetUserIdList()
         {
             using (var context = new MyDBContext())
             {
+                
                 var users = context.UserManagers;
                 UserIdList.Clear();
                 foreach (var item in users)
                 {
                     UserIdList.Add(item.Id);
                 }
-                var orders = context.Orders;
+            }
+        }
+
+        void RefreshUserList()
+        {
+            using (var context = new MyDBContext())
+            {
+                dataGridUsers.Rows.Clear();
+                foreach (var item in UserIdList)
+                {
+                    var thisUser = context.UserManagers.First(user => user.Id == item);
+                    dataGridUsers.Rows.Add(thisUser.Id, thisUser.Name);
+                }
             }
         }
 
@@ -55,7 +68,9 @@ namespace Soz.SQLGraphic
                 int UserId = Int32.Parse(textBox1.Text);
                 OrdersPage ordersPage = new OrdersPage(UserId);
                 warnings.Visible = false;
+                this.Hide();
                 ordersPage.ShowDialog();
+                this.Show();
             }
         }
 
@@ -80,6 +95,11 @@ namespace Soz.SQLGraphic
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
